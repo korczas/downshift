@@ -106,7 +106,8 @@ class Downshift extends Component {
     onOuterClick: noop,
     selectedItemChanged: (prevItem, item) => prevItem !== item,
     environment:
-      typeof window === 'undefined' /* istanbul ignore next (ssr) */
+      /* istanbul ignore next (ssr) */
+      typeof window === 'undefined'
         ? {}
         : window,
     stateReducer: (state, stateToSet) => stateToSet,

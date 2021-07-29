@@ -215,7 +215,8 @@ const defaultProps = {
   scrollIntoView,
   circularNavigation: false,
   environment:
-    typeof window === 'undefined' /* istanbul ignore next (ssr) */
+   /* istanbul ignore next (ssr) */
+    typeof window === 'undefined'
       ? {}
       : window,
 }

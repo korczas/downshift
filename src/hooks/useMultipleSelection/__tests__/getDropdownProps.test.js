@@ -261,7 +261,7 @@ describe('getDropdownProps', () => {
 
       // eslint-disable-next-line no-console
       expect(console.error.mock.calls[0][0]).toMatchInlineSnapshot(
-        `"downshift: You forgot to call the getDropdownProps getter function on your component / element."`,
+        `downshift: You forgot to call the getDropdownProps getter function on your component / element.`,
       )
     })
 
@@ -274,7 +274,7 @@ describe('getDropdownProps', () => {
 
       // eslint-disable-next-line no-console
       expect(console.error.mock.calls[0][0]).toMatchInlineSnapshot(
-        `"downshift: The ref prop \\"ref\\" from getDropdownProps was not applied correctly on your element."`,
+        `downshift: The ref prop "ref" from getDropdownProps was not applied correctly on your element.`,
       )
     })
 
