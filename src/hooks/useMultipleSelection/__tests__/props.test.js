@@ -25,16 +25,14 @@ describe('props', () => {
     })
 
     test('passed as objects should work with custom itemToString', () => {
-      const {
-        keyDownOnSelectedItemAtIndex,
-        getA11yStatusContainer,
-      } = renderMultipleCombobox({
-        multipleSelectionProps: {
-          initialSelectedItems: [{str: 'aaa'}, {str: 'bbb'}],
-          initialActiveIndex: 0,
-          itemToString: item => item.str,
-        },
-      })
+      const {keyDownOnSelectedItemAtIndex, getA11yStatusContainer} =
+        renderMultipleCombobox({
+          multipleSelectionProps: {
+            initialSelectedItems: [{str: 'aaa'}, {str: 'bbb'}],
+            initialActiveIndex: 0,
+            itemToString: item => item.str,
+          },
+        })
 
       keyDownOnSelectedItemAtIndex(0, 'Delete')
 
@@ -45,15 +43,13 @@ describe('props', () => {
 
     test('controls the state property if passed', () => {
       const inputItems = [items[0], items[1]]
-      const {
-        keyDownOnSelectedItemAtIndex,
-        getSelectedItems,
-      } = renderMultipleCombobox({
-        multipleSelectionProps: {
-          selectedItems: inputItems,
-          initialActiveIndex: 0,
-        },
-      })
+      const {keyDownOnSelectedItemAtIndex, getSelectedItems} =
+        renderMultipleCombobox({
+          multipleSelectionProps: {
+            selectedItems: inputItems,
+            initialActiveIndex: 0,
+          },
+        })
 
       keyDownOnSelectedItemAtIndex(0, 'Delete')
 
@@ -95,16 +91,14 @@ describe('props', () => {
 
     test('is replaced with the user provided one', () => {
       const initialSelectedItems = [items[0], items[1]]
-      const {
-        keyDownOnSelectedItemAtIndex,
-        getA11yStatusContainer,
-      } = renderMultipleCombobox({
-        multipleSelectionProps: {
-          initialSelectedItems,
-          initialActiveIndex: 0,
-          getA11yRemovalMessage: () => 'custom message',
-        },
-      })
+      const {keyDownOnSelectedItemAtIndex, getA11yStatusContainer} =
+        renderMultipleCombobox({
+          multipleSelectionProps: {
+            initialSelectedItems,
+            initialActiveIndex: 0,
+            getA11yRemovalMessage: () => 'custom message',
+          },
+        })
 
       keyDownOnSelectedItemAtIndex(0, 'Delete')
 
@@ -373,15 +367,13 @@ describe('props', () => {
         changes.activeIndex = 0
         return changes
       })
-      const {
-        clickOnSelectedItemAtIndex,
-        getSelectedItemAtIndex,
-      } = renderMultipleCombobox({
-        multipleSelectionProps: {
-          initialSelectedItems: [items[0], items[1]],
-          stateReducer,
-        },
-      })
+      const {clickOnSelectedItemAtIndex, getSelectedItemAtIndex} =
+        renderMultipleCombobox({
+          multipleSelectionProps: {
+            initialSelectedItems: [items[0], items[1]],
+            stateReducer,
+          },
+        })
 
       clickOnSelectedItemAtIndex(1)
 
@@ -495,19 +487,16 @@ describe('props', () => {
 
     test('works correctly with the corresponding control prop', () => {
       let activeIndex = 3
-      const {
-        keyDownOnSelectedItemAtIndex,
-        getSelectedItemAtIndex,
-        rerender,
-      } = renderMultipleCombobox({
-        multipleSelectionProps: {
-          initialSelectedItems: items,
-          activeIndex,
-          onActiveIndexChange: changes => {
-            activeIndex = changes.activeIndex
+      const {keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, rerender} =
+        renderMultipleCombobox({
+          multipleSelectionProps: {
+            initialSelectedItems: items,
+            activeIndex,
+            onActiveIndexChange: changes => {
+              activeIndex = changes.activeIndex
+            },
           },
-        },
-      })
+        })
 
       keyDownOnSelectedItemAtIndex(3, 'ArrowLeft')
       rerender({multipleSelectionProps: {activeIndex}})
@@ -568,19 +557,16 @@ describe('props', () => {
 
     test('works correctly with the corresponding control prop', () => {
       let selectedItems = [items[0], items[1]]
-      const {
-        keyDownOnSelectedItemAtIndex,
-        getSelectedItems,
-        rerender,
-      } = renderMultipleCombobox({
-        multipleSelectionProps: {
-          selectedItems,
-          initialActiveIndex: 0,
-          onSelectedItemsChange: changes => {
-            selectedItems = changes.selectedItems
+      const {keyDownOnSelectedItemAtIndex, getSelectedItems, rerender} =
+        renderMultipleCombobox({
+          multipleSelectionProps: {
+            selectedItems,
+            initialActiveIndex: 0,
+            onSelectedItemsChange: changes => {
+              selectedItems = changes.selectedItems
+            },
           },
-        },
-      })
+        })
 
       keyDownOnSelectedItemAtIndex(0, 'Delete')
       rerender({multipleSelectionProps: {selectedItems}})

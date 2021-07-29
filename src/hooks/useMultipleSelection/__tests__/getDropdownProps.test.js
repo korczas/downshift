@@ -170,14 +170,13 @@ describe('getDropdownProps', () => {
       })
 
       test('backspace should not work if pressed with cursor not on first position', () => {
-        const {
-          keyDownOnInput,
-          getSelectedItems,
-          input,
-        } = renderMultipleCombobox({
-          multipleSelectionProps: {initialSelectedItems: [items[0], items[1]]},
-          comboboxProps: {initialInputValue: 'test'},
-        })
+        const {keyDownOnInput, getSelectedItems, input} =
+          renderMultipleCombobox({
+            multipleSelectionProps: {
+              initialSelectedItems: [items[0], items[1]],
+            },
+            comboboxProps: {initialInputValue: 'test'},
+          })
 
         input.selectionStart = 1
         input.selectionEnd = 1
@@ -187,14 +186,13 @@ describe('getDropdownProps', () => {
       })
 
       test('backspace should not work if pressed with cursor highlighting text', () => {
-        const {
-          keyDownOnInput,
-          getSelectedItems,
-          input,
-        } = renderMultipleCombobox({
-          multipleSelectionProps: {initialSelectedItems: [items[0], items[1]]},
-          comboboxProps: {initialInputValue: 'test'},
-        })
+        const {keyDownOnInput, getSelectedItems, input} =
+          renderMultipleCombobox({
+            multipleSelectionProps: {
+              initialSelectedItems: [items[0], items[1]],
+            },
+            comboboxProps: {initialInputValue: 'test'},
+          })
 
         input.selectionStart = 0
         input.selectionEnd = 3
@@ -204,13 +202,12 @@ describe('getDropdownProps', () => {
       })
 
       test("other than the ones supported don't affect anything", () => {
-        const {
-          keyDownOnInput,
-          getSelectedItems,
-          input,
-        } = renderMultipleCombobox({
-          multipleSelectionProps: {initialSelectedItems: [items[0], items[1]]},
-        })
+        const {keyDownOnInput, getSelectedItems, input} =
+          renderMultipleCombobox({
+            multipleSelectionProps: {
+              initialSelectedItems: [items[0], items[1]],
+            },
+          })
 
         keyDownOnInput('Alt')
         keyDownOnInput('Control')

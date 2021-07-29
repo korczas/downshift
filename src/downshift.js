@@ -107,9 +107,7 @@ class Downshift extends Component {
     selectedItemChanged: (prevItem, item) => prevItem !== item,
     environment:
       /* istanbul ignore next (ssr) */
-      typeof window === 'undefined'
-        ? {}
-        : window,
+      typeof window === 'undefined' ? {} : window,
     stateReducer: (state, stateToSet) => stateToSet,
     suppressRefError: false,
     scrollIntoView,

@@ -215,10 +215,8 @@ const defaultProps = {
   scrollIntoView,
   circularNavigation: false,
   environment:
-   /* istanbul ignore next (ssr) */
-    typeof window === 'undefined'
-      ? {}
-      : window,
+    /* istanbul ignore next (ssr) */
+    typeof window === 'undefined' ? {} : window,
 }
 
 function getDefaultValue(
